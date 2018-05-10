@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////
 // ImageMaker Class Definition               /////
 ////////////////////////////////////////////////////////////////////////
-// This class is used to manage the image manipulation and prep on    //
+// This class is  used to manage the image manipulation and prep on    //
 // the page. It is instantiated when the page is loaded, and it       //
 // handles all the logic of updating the image preview with the data  //
 // submitted by users via the image maker form.                       //
@@ -15,21 +15,25 @@ class ImageMaker {
         // TODO: Set up attributes that point to the HTML elements we wish to work with.
 
         // TODO: Select the `#image-preview` div using any document selector method.
-        this.imagePreview = ;
+        this.imagePreview = document.getElementById('image-preview');
 
         // TODO: create a new `<p>` element called `this.topText`
-        this.topText = ;
+        this.topText = document.createElement('p');
+
         // TODO: Add a `class` attribute to `this.topText` that contains the classname "top-text".
+        this.topText.setAttribute('class','top-text');
 
         // TODO: Append `this.topText` as a child element to `this.imagePreview`
-
+        this.imagePreview.appendChild(this.topText);
 
         // TODO: create a new `<p>` element called `this.bottomText`
-        this.bottomText = ;
+        this.bottomText = document.createElement('p');
+
         // TODO: Add a `class` attribute to `this.bottomText` that contains the classname "bottom-text".
+        this.bottomText.setAttribute('class', 'bottom-text');
 
         // TODO: Append `this.bottomText` as a child element to `this.imagePreview`
-
+        
         // This class also needs to use the form fields to read user input. Set
         // those up for future use, too.
 
