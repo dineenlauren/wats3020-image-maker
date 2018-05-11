@@ -15,7 +15,7 @@ class ImageMaker {
         // TODO: Set up attributes that point to the HTML elements we wish to work with.
 
         // TODO: Select the `#image-preview` div using any document selector method.
-        this.imagePreview = document.getElementById('image-preview');
+        this.imagePreview = document.querySelector('image-preview');
 
         // TODO: create a new `<p>` element called `this.topText`
         this.topText = document.createElement('p');
@@ -33,18 +33,18 @@ class ImageMaker {
         this.bottomText.setAttribute('class', 'bottom-text');
 
         // TODO: Append `this.bottomText` as a child element to `this.imagePreview`
-        
+        this.imagePreview.appendChild(this.bottomText);
+
         // This class also needs to use the form fields to read user input. Set
         // those up for future use, too.
-
+        
         // TODO: Select the `input` element with the `name` attribute "backgroundImage"
-        this.backgroundInput = ;
-
         // TODO: Select the `input` element with the `name` attribute "topText"
-        this.topTextInput = ;
-
         // TODO: Select the `input` element with the `name` attribute "bottomText"
-        this.bottomTextInput = ;
+        
+        this.backgroundInput = document.querySelector('select[name="backgroundImage"]');
+        this.topTextInput = document.querySelector('input[name="topText"]');
+        this.bottomTextInput = document.querySelector('input[name="bottomText"]');
 
         // NOTE: If you add additional form fields to modify other aspects of
         // the image, then you will need to make attributes for each of those
