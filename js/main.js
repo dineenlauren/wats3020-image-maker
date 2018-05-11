@@ -15,24 +15,22 @@ class ImageMaker {
         // TODO: Set up attributes that point to the HTML elements we wish to work with.
 
         // TODO: Select the `#image-preview` div using any document selector method.
-        this.imagePreview = document.querySelector('image-preview');
+        this.imagePreview = document.querySelector('div[id="image-preview"]');
 
         // TODO: create a new `<p>` element called `this.topText`
-        this.topText = document.createElement('p');
-
         // TODO: Add a `class` attribute to `this.topText` that contains the classname "top-text".
-        this.topText.setAttribute('class','top-text');
-
         // TODO: Append `this.topText` as a child element to `this.imagePreview`
+        
+        this.topText = document.createElement('p');
+        this.topText.setAttribute('class', 'top-text');
         this.imagePreview.appendChild(this.topText);
 
         // TODO: create a new `<p>` element called `this.bottomText`
-        this.bottomText = document.createElement('p');
-
         // TODO: Add a `class` attribute to `this.bottomText` that contains the classname "bottom-text".
-        this.bottomText.setAttribute('class', 'bottom-text');
-
         // TODO: Append `this.bottomText` as a child element to `this.imagePreview`
+
+        this.bottomText = document.createElement('p');
+        this.bottomText.setAttribute('class', 'bottom-text');
         this.imagePreview.appendChild(this.bottomText);
 
         // This class also needs to use the form fields to read user input. Set
@@ -50,6 +48,8 @@ class ImageMaker {
         // the image, then you will need to make attributes for each of those
         // elements here.
     }
+
+
     drawPreview(){
         // This function is called whenever a user changes one of the form fields
         // and whenever an image is generated for download. This function must
@@ -58,11 +58,11 @@ class ImageMaker {
         // update `this.imagePreview`.
 
         // TODO: Update the `background-image` CSS property for `this.imagePreview`.
-
+        this.imagePreview.style.backgroundImage = `url(images/${this.backgroundInput.value}`;
         // TODO: Update the `innerHTML` of `this.topText`.
-
+        this.topText.innerHTML = this.topTextInput.value;
         // TODO: Update the `innerHTML` of `this.bottomText`
-
+        this.bottomText.innerHTML = this.bottomTextInput.value;
 
     }
     downloadImage(){
