@@ -10,7 +10,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 class ImageMaker {
-    constructor(){
+    constructor()
         // When this class is instantiated, the `constructor()` method is executed.
         // TODO: Set up attributes that point to the HTML elements we wish to work with.
 
@@ -24,6 +24,32 @@ class ImageMaker {
         this.topText = document.createElement('p');
         this.topText.setAttribute('class', 'top-text');
         this.imagePreview.appendChild(this.topText);
+        
+        //should I add 'this.' to colorText??
+        this.colorTopText = document.querySelector('input);
+        var defaultColor = "#0000ff";
+        window.addEventListener("load", startup, false);
+        
+        function startup() {  //could I replace the id with just '#colorTopText'? 
+            this.colorTopText = document.querySelector('input[id="colorTopText"]');
+            this.colorTopText.value = defaultColor;
+            this.colorTopText.addEventListener("input", updateFirst, false);
+            // this.colorTopText.addEventListener("change", updateAll, false);
+            this.colorTopText.select(); 
+        }
+
+        function updateFirst(event) {
+            if (this.topText) {
+                this.topText.style.color = event.target.value;
+            } 
+        }
+
+        // function updateAll(event) {
+        //     document.querySelectorAll(this.topText).forEach(function (topText) {
+        //         this.topText.style.color = event.target.value;
+        //     });
+        // }
+        
 
         // TODO: create a new `<p>` element called `this.bottomText`
         // TODO: Add a `class` attribute to `this.bottomText` that contains the classname "bottom-text".
@@ -42,7 +68,9 @@ class ImageMaker {
         
         this.backgroundInput = document.querySelector('select[name="backgroundImage"]');
         this.topTextInput = document.querySelector('input[name="topText"]');
+        this.topColorTextInput = document.querySelector('input[')
         this.bottomTextInput = document.querySelector('input[name="bottomText"]');
+
 
         // NOTE: If you add additional form fields to modify other aspects of
         // the image, then you will need to make attributes for each of those
@@ -61,6 +89,7 @@ class ImageMaker {
         this.imagePreview.style.backgroundImage = `url(images/${this.backgroundInput.value}`;
         // TODO: Update the `innerHTML` of `this.topText`.
         this.topText.innerHTML = this.topTextInput.value;
+        this.colorTopText.style.innerHTML = this.colorTopText.value
         // TODO: Update the `innerHTML` of `this.bottomText`
         this.bottomText.innerHTML = this.bottomTextInput.value;
 
