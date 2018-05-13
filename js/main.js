@@ -9,62 +9,59 @@
 // submitted by users via the image maker form.                       //
 ////////////////////////////////////////////////////////////////////////
 
+
 class ImageMaker {
     constructor(){
-        // When this class is instantiated, the `constructor()` method is executed.
-        // TODO: Set up attributes that point to the HTML elements we wish to work with.
-
-        // TODO: Select the `#image-preview` div using any document selector method.
         this.imagePreview = document.querySelector('div[id="image-preview"]');
-
-        // TODO: create a new `<p>` element called `this.topText`
-        // TODO: Add a `class` attribute to `this.topText` that contains the classname "top-text".
-        // TODO: Append `this.topText` as a child element to `this.imagePreview`
         
+        // Top User-Input Text
         this.topText = document.createElement('p');
         this.topText.setAttribute('class', 'top-text');
         this.imagePreview.appendChild(this.topText);
 
-        // TODO: create a new `<p>` element called `this.bottomText`
-        // TODO: Add a `class` attribute to `this.bottomText` that contains the classname "bottom-text".
-        // TODO: Append `this.bottomText` as a child element to `this.imagePreview`
+       // Select Top Text Color
+        this.colorTopText = document.querySelector("#colorTopText");
+        this.colorTopText.setAttribute('class', 'color-btn');
+        this.colorTopText.addEventListener("change", updateTop, false);
+        function updateTop(event) {
+            var pTopText = document.querySelector(".top-text");
+            if (pTopText) {
+                pTopText.style.color = event.target.value;
+            }
+        };
 
+        // Bottom User-Input Text
         this.bottomText = document.createElement('p');
         this.bottomText.setAttribute('class', 'bottom-text');
         this.imagePreview.appendChild(this.bottomText);
 
-        // This class also needs to use the form fields to read user input. Set
-        // those up for future use, too.
-        
-        // TODO: Select the `input` element with the `name` attribute "backgroundImage"
-        // TODO: Select the `input` element with the `name` attribute "topText"
-        // TODO: Select the `input` element with the `name` attribute "bottomText"
-        
+        // Select Bottom Text Color
+        this.colorBtmText = document.querySelector("#colorBtmText");
+        this.colorBtmText.setAttribute('class', 'color-btn');
+        this.colorBtmText.addEventListener("change", updateBottom, false);
+        function updateBottom(event) {
+            var pBtmText = document.querySelector(".bottom-text");
+            if (pBtmText) {
+                pBtmText.style.color = event.target.value;
+            }
+        };
+
+        // Form Fields for User Input    
         this.backgroundInput = document.querySelector('select[name="backgroundImage"]');
         this.topTextInput = document.querySelector('input[name="topText"]');
+        this.topTextInput.setAttribute('class', 'field-input');
         this.bottomTextInput = document.querySelector('input[name="bottomText"]');
-
-        // NOTE: If you add additional form fields to modify other aspects of
-        // the image, then you will need to make attributes for each of those
-        // elements here.
+        this.bottomTextInput.setAttribute('class', 'field-input');
     }
 
-
+    // Update change of Form Fields to image preview
     drawPreview(){
-        // This function is called whenever a user changes one of the form fields
-        // and whenever an image is generated for download. This function must
-        // update the style attributes and innerHTML content of the HTML
-        // elements selected in the `constructor()` of this class in order to
-        // update `this.imagePreview`.
 
-        // TODO: Update the `background-image` CSS property for `this.imagePreview`.
         this.imagePreview.style.backgroundImage = `url(images/${this.backgroundInput.value}`;
-        // TODO: Update the `innerHTML` of `this.topText`.
         this.topText.innerHTML = this.topTextInput.value;
-        // TODO: Update the `innerHTML` of `this.bottomText`
         this.bottomText.innerHTML = this.bottomTextInput.value;
-
     }
+
     downloadImage(){
         this.drawPreview();
         generateImage();

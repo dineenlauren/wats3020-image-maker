@@ -6,7 +6,7 @@
 
   <title>WATS 3020: Image Maker</title>
   <meta name="description" content="WATS 3020 Image Maker">
-  <meta name="author" content="Jane Student">
+  <meta name="author" content="Dineen Schmidt">
 
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -19,10 +19,12 @@
       <p>
         <label for="topText">Top Text</label>
         <input name="topText" placeholder="Text for top of image." value="">
+        <input type="color" id="colorTopText">
       </p>
       <p>
         <label for="bottomText">Bottom Text</label>
         <input name="bottomText" placeholder="Text for bottom of image." value="">
+        <input type="color" id="colorBtmText">
       </p>
       <p>
         <label for="backgroundImage">Background</label>
@@ -34,7 +36,7 @@
           <option value="stark.jpg">stark</option>
         </select>
       </p>
-      <p><input type="submit" value="Download Image"></p>
+      <p><input type="submit" value="Download Image" id="submit-btn"></p>
     </form>
   </div>
 
